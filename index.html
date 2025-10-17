@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agendamento — Barbearia Balada</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <img src="logo-barbearia.png" alt="Logo Barbearia Balada" />
+    <h1>Barbearia Balada</h1>
+    <p>Preencha os dados abaixo para agendar seu horário.</p>
+
+    <form id="formAgendamento">
+      <div class="row">
+        <input type="text" id="nome" placeholder="Seu nome completo" required>
+        <input type="tel" id="telefone" placeholder="Ex: (81) 98765-4321" required>
+      </div>
+
+      <div class="row">
+        <input type="date" id="data" required>
+        <input type="time" id="hora" required>
+      </div>
+
+      <div class="buttons">
+        <button type="reset" class="btn-clear">Limpar</button>
+        <button type="button" class="btn-whatsapp" onclick="enviarWhatsApp()">Agendar pelo WhatsApp</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    function enviarWhatsApp() {
+      const nome = document.getElementById('nome').value;
+      const telefone = document.getElementById('telefone').value;
+      const data = document.getElementById('data').value;
+      const hora = document.getElementById('hora').value;
+
+      if (!nome || !telefone || !data || !hora) {
+        alert("Por favor, preencha todos os campos!");
+        return;
+      }
+
+      const mensagem = `Olá! Gostaria de agendar um corte na Barbearia Balada.%0A%0A👤 Nome: ${nome}%0A📞 Telefone: ${telefone}%0A📅 Data: ${data}%0A⏰ Hora: ${hora}`;
+      const url = `https://wa.me/5581985102806?text=${mensagem}`;
+
+      window.open(url, "_blank");
+    }
+  </script>
+</body>
+</html>

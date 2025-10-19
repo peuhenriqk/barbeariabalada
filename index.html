@@ -43,13 +43,13 @@
       }
 
       const mensagem = `Olá! Gostaria de agendar um corte na Barbearia Balada.%0A%0A Nome: ${nome}%0A Telefone: ${telefone}%0A Data: ${data}%0A Hora: ${hora}`;
-       const date = newDate(data).toLocaleDateString('pt-BR', { timeZone: 'UTC' });
       const url = `https://wa.me/5581985102806?text=${mensagem}`;
       window.open(url, "_blank");
     }
   </script>
 </body>
 </html>
+
 
 
 
